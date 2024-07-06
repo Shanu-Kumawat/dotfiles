@@ -1,4 +1,4 @@
-require "nvchad.mappings"
+require("nvchad.mappings")
 local map = vim.keymap.set
 local nomap = vim.keymap.del
 
@@ -56,15 +56,15 @@ map("n", "<leader>K", vim.lsp.buf.hover, { desc = "Show hover" })
 -- )
 
 map("n", "<leader>wl", function()
-  print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+	print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 end, { desc = "List workspace folders" })
 
 map("n", "<leader>ra", function()
-  require "nvchad.lsp.renamer"()
+	require("nvchad.lsp.renamer")()
 end, { desc = "NvRenamer" })
 nomap("n", "<leader>ds") -- move to diagnostic list
 map("n", "<leader>qe", function()
-  vim.diagnostic.setqflist { open = false }
+	vim.diagnostic.setqflist({ open = false })
 end, { desc = "Set quickfix list with diagnostics (Error Quickfix)" })
 nomap("n", "<leader>e")
 map("n", "<leader>e", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
@@ -80,3 +80,7 @@ map("n", "<C-j>", "<cmd>TmuxNavigateDown<CR>", { silent = true, noremap = true }
 map("n", "<C-k>", "<cmd>TmuxNavigateUp<CR>", { silent = true, noremap = true })
 map("n", "<C-l>", "<cmd>TmuxNavigateRight<CR>", { silent = true, noremap = true })
 map("n", "<C-\\>", "<cmd>TmuxNavigatePrevious<CR>", { silent = true, noremap = true })
+
+map("n", "<leader>rc", function()
+	require("configs.runner").run_file()
+end, { desc = "run file" })
