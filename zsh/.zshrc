@@ -101,4 +101,7 @@ alias nvd='~/.config/hypr/user_scripts/move_to_next_empty_workspace.sh '
 #zoxide setup
 eval "$(zoxide init zsh)"
 
-
+#Proxy Config
+# export http_proxy="http://edcguest:edcguest@172.31.100.25:3128"
+# export https_proxy="http://edcguest:edcguest@172.31.100.25:3128"
+# export ftp_proxy="http://edcguest:edcguest@172.31.100.25:3128"

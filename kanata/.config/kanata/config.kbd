@@ -1,0 +1,21 @@
+(defcfg
+  linux-dev (
+    /dev/input/event4
+    /dev/input/event5
+    /dev/input/event6
+    /dev/input/event7
+    /dev/input/event9
+  )
+)
+
+(defsrc
+  caps
+)
+
+(defalias
+  cec (tap-hold 200 200 esc lctl)
+)
+
+(deflayer default
+  @cec
+)
