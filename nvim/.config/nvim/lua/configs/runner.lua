@@ -9,6 +9,10 @@ M.run_file = function()
 			local ft_cmds = {
 				python = "python3 " .. file,
 				cpp = "clear && g++ -o out " .. file .. " && ./out",
+				java = "javac " .. file .. " && java " .. vim.fn.fnamemodify(file, ":r"),
+				c = "clear && gcc -o out " .. file .. " && ./out",
+				javascript = "node " .. file,
+				typescript = "ts-node " .. file,
 			}
 			return ft_cmds[vim.bo.ft]
 		end,
