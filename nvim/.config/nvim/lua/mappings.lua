@@ -81,6 +81,7 @@ map("n", "<C-k>", "<cmd>TmuxNavigateUp<CR>", { silent = true, noremap = true })
 map("n", "<C-l>", "<cmd>TmuxNavigateRight<CR>", { silent = true, noremap = true })
 map("n", "<C-\\>", "<cmd>TmuxNavigatePrevious<CR>", { silent = true, noremap = true })
 
-map("n", "<leader>rc", function()
-	require("configs.runner").run_file()
-end, { desc = "run file" })
+-- code-runner
+map("n", "<leader>rc", ":RunCode<CR>", { noremap = true, silent = false })
+map("n", "<leader>rf", ":RunFile<CR>", { noremap = true, silent = false })
+map("n", "<leader>rp", ":RunProject<CR>", { noremap = true, silent = false })

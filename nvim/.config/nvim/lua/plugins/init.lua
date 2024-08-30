@@ -29,6 +29,13 @@ return {
 	},
 
 	{
+		"CRAG666/code_runner.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+		config = function()
+			require("configs.code-runner")
+		end,
+	},
+	{
 		"elixir-tools/elixir-tools.nvim",
 		version = "*",
 		event = { "BufReadPre", "BufNewFile" },
