@@ -78,6 +78,7 @@ alias pa='$aurhelper -Ss' # list availabe package
 alias pc='$aurhelper -Sc' # remove unused cache
 alias po='$aurhelper -Qtdq | $aurhelper -Rns -' # remove unused packages, also try > $aurhelper -Qqd | $aurhelper -Rsu --print -
 alias vc='code' # gui code editor
+alias cd='z'
 
 # Handy change dir shortcuts
 alias ..='cd ..'
@@ -101,7 +102,20 @@ alias nvd='~/.config/hypr/user_scripts/move_to_next_empty_workspace.sh '
 #zoxide setup
 eval "$(zoxide init zsh)"
 
+
 #Proxy Config
 # export http_proxy="http://edcguest:edcguest@172.31.100.25:3128"
-# export https_proxy="http://edcguest:edcguest@172.31.100.25:3128"
 # export ftp_proxy="http://edcguest:edcguest@172.31.100.25:3128"
+# export https_proxy="http://edcguest:edcguest@172.31.100.25:3128"
+
+#pyenv setup
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+export LD_LIBRARY_PATH=/opt/cuda/lib64:$LD_LIBRARY_PATH
+export CUDA_HOME=/opt/cuda
+export CUDA_DIR=/opt/cuda
+export PATH=/opt/cuda/bin:$PATH
+export LIBDEVICE_DIR=/opt/cuda/nvvm/libdevice/
+export XLA_FLAGS=--xla_gpu_cuda_data_dir=/opt/cuda

@@ -17,6 +17,17 @@ return {
 	},
 
 	{
+		"elixir-tools/elixir-tools.nvim",
+		version = "*",
+		event = { "BufReadPre", "BufNewFile" },
+		config = function()
+			require("configs.elixir-tools")
+		end,
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+	},
+	{
 		"christoomey/vim-tmux-navigator",
 		lazy = false,
 		cmd = {

@@ -2,7 +2,7 @@ local M = {}
 
 M.run_file = function()
 	require("nvchad.term").runner({
-		id = "htoggleTerm",
+		id = "boo",
 		pos = "sp",
 		cmd = function()
 			local file = vim.fn.expand("%")
@@ -13,6 +13,7 @@ M.run_file = function()
 				c = "clear && gcc -o out " .. file .. " && ./out",
 				javascript = "node " .. file,
 				typescript = "ts-node " .. file,
+				elixir = "elixir " .. file,
 			}
 			return ft_cmds[vim.bo.ft]
 		end,
