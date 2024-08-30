@@ -17,6 +17,18 @@ return {
 	},
 
 	{
+		"CRAG666/betterTerm.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+		opts = {
+			position = "bot",
+			size = 15,
+		},
+		config = function()
+			require("configs.betterterm")
+		end,
+	},
+
+	{
 		"elixir-tools/elixir-tools.nvim",
 		version = "*",
 		event = { "BufReadPre", "BufNewFile" },
