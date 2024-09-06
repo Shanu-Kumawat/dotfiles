@@ -13,8 +13,26 @@ map("n", "<C-u>", "<C-u>zz", { desc = "helf page scroll up" })
 map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
 
-map("n", "<leader>o", "o<ESC>", { desc = "Insert line below in normal mode" })
-map("n", "<leader>O", "O<ESC>", { desc = "Insert line above in normal mode" })
+-- greatest remap ever
+vim.keymap.set("n", "<leader>o", function()
+	local count = vim.v.count1
+	local current_line = vim.fn.line(".")
+	local lines = {}
+	for _ = 1, count do
+		table.insert(lines, "")
+	end
+	vim.api.nvim_buf_set_lines(0, current_line, current_line, false, lines)
+end, { desc = "Insert empty line(s) below" })
+
+vim.keymap.set("n", "<leader>O", function()
+	local count = vim.v.count1
+	local current_line = vim.fn.line(".")
+	local lines = {}
+	for _ = 1, count do
+		table.insert(lines, "")
+	end
+	vim.api.nvim_buf_set_lines(0, current_line - 1, current_line - 1, false, lines)
+end, { desc = "Insert empty line(s) above" })
 
 -- greatest remap ever
 map("x", "<leader>p", [["_dP]], { desc = "delete and paste" })
