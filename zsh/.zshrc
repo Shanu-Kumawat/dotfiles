@@ -103,10 +103,6 @@ alias nvd='~/.config/hypr/user_scripts/move_to_next_empty_workspace.sh '
 eval "$(zoxide init zsh)"
 
 
-#Proxy Config
-# export http_proxy="http://edcguest:edcguest@172.31.100.25:3128"
-# export ftp_proxy="http://edcguest:edcguest@172.31.100.25:3128"
-# export https_proxy="http://edcguest:edcguest@172.31.100.25:3128"
 
 #pyenv setup
 export PYENV_ROOT="$HOME/.pyenv"
@@ -119,3 +115,6 @@ export CUDA_DIR=/opt/cuda
 export PATH=/opt/cuda/bin:$PATH
 export LIBDEVICE_DIR=/opt/cuda/nvvm/libdevice/
 export XLA_FLAGS=--xla_gpu_cuda_data_dir=/opt/cuda
+export PATH="$PATH":"$HOME/.pub-cache/bin"
+export PATH="$PATH:$HOME/development/flutter/bin"
+

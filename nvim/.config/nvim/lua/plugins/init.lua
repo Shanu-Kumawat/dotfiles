@@ -5,6 +5,26 @@ if vim.g.neovide then
 	vim.g.neovide_hide_mouse_when_typing = false
 end
 
+for i = 1, 9, 1 do
+	vim.keymap.set("n", string.format("<A-%s>", i), function()
+		vim.api.nvim_set_current_buf(vim.t.bufs[i])
+	end)
+end
+
+-- vscode format i.e json files
+vim.g.vscode_snippets_path = vim.fn.stdpath("config") .. "/lua/my_snippets"
+
+--
+-- vim.api.nvim_create_autocmd({ "BufAdd", "BufEnter", "tabnew" }, {
+-- 	callback = function()
+-- 		vim.t.bufs = vim.tbl_filter(function(bufnr)
+-- 			return vim.api.nvim_buf_get_option(bufnr, "modified")
+-- 				or vim.api.nvim_buf_get_option(bufnr, "buftype")
+-- 				or vim.api.nvim_buf_get_name(bufnr):match("diffpanel_3") == ""
+-- 		end, vim.t.bufs)
+-- 	end,
+-- })
+--
 local flutter = require("configs.flutter")
 vim.api.nvim_create_user_command("FlutterTest", flutter.flutter_test, {})
 vim.api.nvim_create_user_command("FindHardcodedStrings", flutter.find_hardcoded_strings, {})
@@ -12,8 +32,24 @@ vim.api.nvim_create_user_command("FindHardcodedStrings", flutter.find_hardcoded_
 return {
 
 	{
+		"folke/which-key.nvim",
+		lazy = false, -- disables lazy loading
+	},
+
+	{
 		"tpope/vim-fugitive",
 		cmd = "Git",
+	},
+
+	{
+		"mbbill/undotree",
+		cmd = "UndotreeToggle",
+		keys = {
+			{ "<leader>u", vim.cmd.UndotreeToggle, desc = "Toggle Undotree" },
+		},
+		config = function()
+			require("configs.undotree")
+		end,
 	},
 
 	{
